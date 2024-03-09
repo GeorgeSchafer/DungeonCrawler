@@ -1,9 +1,10 @@
-class MyActorName : Actor
+class DungeonCrawlActor : Actor
 {
     // This is where class-scope variables (aka fields)
     // are usually defined.
-    int unit_movement = 128; // example of an integer variable
+    // int foo; // example of an integer variable
     // double bar; //example of a double (float-point) variable
+    int movement = 128;
 
     Default
     {
@@ -11,11 +12,6 @@ class MyActorName : Actor
         // They define the actor's initial behavior, when
         // it spawns. Most of them can be dynamically
         // changed later.
-        +SOLID
-        +SHOOTABLE
-        radius 32;
-        height 56;
-        health 100;
     }
 
     // This is where functions are usually defined.
@@ -24,10 +20,10 @@ class MyActorName : Actor
     // later).
 
     // An example of a custom function:
-    // void MyFunction()
-    // {
+    void MyFunction()
+    {
         // do something
-    // }
+    }
 
     // This is an example of a virtual function override.
     // Tick() is a function that all actors run automatically
@@ -45,9 +41,6 @@ class MyActorName : Actor
         // such happen.
         super.Tick();
 
-
-
-
         // You can add more behavior here.
     }
 
@@ -58,8 +51,8 @@ class MyActorName : Actor
     {
     // All actors enter their Spawn state sequence
     // by default when they spawn:
-    Spawn:
-        TROO ABCD 1; //display TROOA, TROOB, TROOC and TROOD sprites, each for 1 tic
+    // Spawn:
+        // TROO ABCD 1; //display TROOA, TROOB, TROOC and TROOD sprites, each for 1 tic
         loop; //loop the state sequence
     }
 }

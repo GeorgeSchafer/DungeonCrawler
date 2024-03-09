@@ -11,11 +11,18 @@ class MyActorName : Actor
         // They define the actor's initial behavior, when
         // it spawns. Most of them can be dynamically
         // changed later.
-        +SOLID
-        +SHOOTABLE
-        radius 32;
-        height 56;
-        health 100;
+        Projectile
+/*      Projectile flags
+            +NOBLOCKMAP
+            +NOGRAVITY
+            +DROPOFF
+            +MISSILE
+            +ACTIVATEIMPACT
+            +ACTIVATEPCROSS
+            +NOTELEPORT
+            +BLOODSPLATTER (When playing Heretic or Hexen) */
+
+
     }
 
     // This is where functions are usually defined.
@@ -56,15 +63,6 @@ class MyActorName : Actor
     // All actors enter their Spawn state sequence
     // by default when they spawn:
     Spawn:
-/*
-        TROO = sprite name
-        A, ABCD = frame letter
-        TICK_DURATION = duration in tics; a tic in GZDoom is 1/35th of a second
-        Its associated action function
-        Its successor (the next state in sequence)
-*/
-        TROO A TICK_DURATION;
-
         TROO ABCD 1; //display TROOA, TROOB, TROOC and TROOD sprites, each for 1 tic
         loop; //loop the state sequence
     }

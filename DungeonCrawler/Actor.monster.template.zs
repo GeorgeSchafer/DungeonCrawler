@@ -1,9 +1,10 @@
-class MyActorName : Actor
+class DungeonCrawlActor : Actor
 {
     // This is where class-scope variables (aka fields)
     // are usually defined.
-    int foo; // example of an integer variable
-    double bar; //example of a double (float-point) variable
+    // int foo; // example of an integer variable
+    // double bar; //example of a double (float-point) variable
+    int movement = 128;
 
     Default
     {
@@ -16,7 +17,16 @@ class MyActorName : Actor
         Height {type: 'integer'};
         Speed {type: 'integer'}; //How many map units it can move per A_Chase call (see See state sequence below)
         PainChance {type: 'integer'}; //how often the monster will flinch when attacked
-        Monster; //this keywords adds various flags that define this actor as a monster
+        Monster // this keywords adds various flags that define this actor as a monster
+/*      Monster flags
+            SHOOTABLE
+            COUNTKILL
+            SOLID
+            CANPUSHWALLS
+            CANUSEWALLS
+            ACTIVATEMCROSS
+            CANPASS
+            ISMONSTER */
         +FLOORCLIP; // it'll be submerged into deep water if defined in TERRAIN lump
         SeeSound {type: 'string'}; //the sound played when it sees a player
         AttackSound {type: 'string'}; //the sound played when attacking
