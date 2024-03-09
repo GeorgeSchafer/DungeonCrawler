@@ -2,8 +2,8 @@ class MyActorName : Actor
 {
     // This is where class-scope variables (aka fields)
     // are usually defined.
-    int foo; // example of an integer variable
-    double bar; //example of a double (float-point) variable
+    int unit_movement = 128; // example of an integer variable
+    // double bar; //example of a double (float-point) variable
 
     Default
     {
@@ -11,21 +11,6 @@ class MyActorName : Actor
         // They define the actor's initial behavior, when
         // it spawns. Most of them can be dynamically
         // changed later.
-        Health {type: 'integer'};
-        Radius {type: 'integer'};
-        Height {type: 'integer'};
-        Speed {type: 'integer'}; //How many map units it can move per A_Chase call (see See state sequence below)
-        PainChance {type: 'integer'}; //how often the monster will flinch when attacked
-        Monster; //this keywords adds various flags that define this actor as a monster
-        +FLOORCLIP; // it'll be submerged into deep water if defined in TERRAIN lump
-        SeeSound {type: 'string'}; //the sound played when it sees a player
-        AttackSound {type: 'string'}; //the sound played when attacking
-        PainSound {type: 'string'}; //the sound played when entering its Pain state sequence
-        DeathSound {type: 'string'}; //the sound played when A_Scream is called (see Death sequence)
-        ActiveSound {type: 'string'}; //the sound played periodically when it's chasing the player
-        Obituary {type: 'string'}; //a LANGUAGE lump reference that contains "played was killed by a Zombieman" string
-        Tag {type: 'string'}; //an internal name for the monster
-        DropItem {type: 'string'}; //an item it'll drop when killed
 
     }
 
@@ -35,10 +20,10 @@ class MyActorName : Actor
     // later).
 
     // An example of a custom function:
-    void MyFunction()
-    {
+    // void MyFunction()
+    // {
         // do something
-    }
+    // }
 
     // This is an example of a virtual function override.
     // Tick() is a function that all actors run automatically
@@ -56,7 +41,9 @@ class MyActorName : Actor
         // such happen.
         super.Tick();
 
-        // You can add more behavior here.
+
+
+
     }
 
     // The keyword States begings a states block that
@@ -67,7 +54,7 @@ class MyActorName : Actor
     // All actors enter their Spawn state sequence
     // by default when they spawn:
     Spawn:
-        TROO ABCD 1; //display TROOA, TROOB, TROOC and TROOD sprites, each for 1 tic
+        // TROO ABCD 1; //display TROOA, TROOB, TROOC and TROOD sprites, each for 1 tic
         loop; //loop the state sequence
     }
 }

@@ -11,22 +11,11 @@ class MyActorName : Actor
         // They define the actor's initial behavior, when
         // it spawns. Most of them can be dynamically
         // changed later.
-        Health {type: 'integer'};
-        Radius {type: 'integer'};
-        Height {type: 'integer'};
-        Speed {type: 'integer'}; //How many map units it can move per A_Chase call (see See state sequence below)
-        PainChance {type: 'integer'}; //how often the monster will flinch when attacked
-        Monster; //this keywords adds various flags that define this actor as a monster
-        +FLOORCLIP; // it'll be submerged into deep water if defined in TERRAIN lump
-        SeeSound {type: 'string'}; //the sound played when it sees a player
-        AttackSound {type: 'string'}; //the sound played when attacking
-        PainSound {type: 'string'}; //the sound played when entering its Pain state sequence
-        DeathSound {type: 'string'}; //the sound played when A_Scream is called (see Death sequence)
-        ActiveSound {type: 'string'}; //the sound played periodically when it's chasing the player
-        Obituary {type: 'string'}; //a LANGUAGE lump reference that contains "played was killed by a Zombieman" string
-        Tag {type: 'string'}; //an internal name for the monster
-        DropItem {type: 'string'}; //an item it'll drop when killed
-
+        +SOLID
+        +SHOOTABLE
+        radius 32;
+        height 56;
+        health 100;
     }
 
     // This is where functions are usually defined.
@@ -67,6 +56,15 @@ class MyActorName : Actor
     // All actors enter their Spawn state sequence
     // by default when they spawn:
     Spawn:
+/*
+        TROO = sprite name
+        A, ABCD = frame letter
+        TICK_DURATION = duration in tics; a tic in GZDoom is 1/35th of a second
+        Its associated action function
+        Its successor (the next state in sequence)
+*/
+        TROO A TICK_DURATION;
+
         TROO ABCD 1; //display TROOA, TROOB, TROOC and TROOD sprites, each for 1 tic
         loop; //loop the state sequence
     }
